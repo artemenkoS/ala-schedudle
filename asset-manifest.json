@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/ala-schedudle/static/js/main.fef94727.js",
+    "main.js": "/ala-schedudle/static/js/main.5d959eaa.js",
     "index.html": "/ala-schedudle/index.html",
-    "main.fef94727.js.map": "/ala-schedudle/static/js/main.fef94727.js.map"
+    "main.5d959eaa.js.map": "/ala-schedudle/static/js/main.5d959eaa.js.map"
   },
   "entrypoints": [
-    "static/js/main.fef94727.js"
+    "static/js/main.5d959eaa.js"
   ]
 }
