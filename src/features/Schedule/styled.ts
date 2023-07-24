@@ -29,6 +29,8 @@ export const Wrapper = styled('div')(({ theme }) => ({
   height: '100vh',
   overflow: 'hidden',
   padding: theme.spacing(2, 4),
+  maxWidth: '1250px',
+  margin: '0 auto ',
 }));
 
 export const AirportTitle = styled('div')(({ theme }) => ({

@@ -59,38 +59,36 @@ export const Schedule = (props: IProps) => {
     setAirlineValue(e.target.value.toUpperCase());
   };
 
-  if (isLoading) return <LinearProgress />;
-
   return (
-    <Wrapper>
-      <AirportTitle>{props.city.name} </AirportTitle>
+    <>
+      {isLoading && <LinearProgress />}
+      <Wrapper>
+        <AirportTitle>{props.city.name} ✈</AirportTitle>
 
-      <MenuWrapper>
-        <RouteLink onClick={() => setSelectedCity(null)} to={`/${props.city.routeId}/${ScheduleType.Departures}`}>
-          Отправление
-        </RouteLink>
-        <RouteLink onClick={() => setSelectedCity(null)} to={`/${props.city.routeId}/${ScheduleType.Arrivals}`}>
-          Прибытие
-        </RouteLink>
-      </MenuWrapper>
+        <MenuWrapper>
+          <RouteLink onClick={() => setSelectedCity(null)} to={`/${props.city.routeId}/${ScheduleType.Departures}`}>
+            Отправление
+          </RouteLink>
+          <RouteLink onClick={() => setSelectedCity(null)} to={`/${props.city.routeId}/${ScheduleType.Arrivals}`}>
+            Прибытие
+          </RouteLink>
+        </MenuWrapper>
 
-      <Grid container spacing={2} marginTop={1} marginBottom={2}>
-        <Grid item xs={3}>
-          <TextField fullWidth placeholder="Авиакомпания" size="small" onChange={handleAirlineChange} />
+        <Grid container spacing={2} marginTop={1} marginBottom={2}>
+          <Grid item xs={3}>
+            <TextField fullWidth placeholder="Авиакомпания" size="small" onChange={handleAirlineChange} />
+          </Grid>
+          <Grid item xs={3}>
+            {schedule && <CitySelect cities={cities as ICities} onSelect={setSelectedCity} />}
+          </Grid>
         </Grid>
-        <Grid item xs={3}>
-          {schedule && <CitySelect cities={cities as ICities} onSelect={setSelectedCity} />}
-        </Grid>
-      </Grid>
 
-      {schedule && (
-        <>
-          <div>{schedule.data.currentTime}</div>
+        {schedule && (
           <ScheduleWrapper>
             <ScheduleTable flights={filteredData} scheduleType={props.scheduleType} />
           </ScheduleWrapper>
-        </>
-      )}
-    </Wrapper>
+        )}
+      </Wrapper>
+    </>
   );
 };

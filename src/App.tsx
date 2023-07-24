@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { ScheduleRoot } from './features/Schedule/ScheduleRoot';
@@ -18,7 +19,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Routes>
-        <Route path="/:routeId/:scheduleType" element={<ScheduleRoot />} />
+        <Route path=":routeId/:scheduleType" element={<ScheduleRoot />} />
         <Route path="*" element={<ScheduleRoot />} />
       </Routes>
     </QueryClientProvider>

@@ -20,4 +20,11 @@ export const CITIES: Record<string, ICity> = {
       schedule: 'https://alaport.com/Home/getCurrentFlights',
     },
   },
+  astana: {
+    routeId: 'astana',
+    name: 'Astana International Airport',
+    endPoints: {
+      schedule: 'http://localhost:3030',
+    },
+  },
 };
