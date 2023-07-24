@@ -24,7 +24,7 @@ export const CITIES: Record<string, ICity> = {
     routeId: 'astana',
     name: 'Astana International Airport',
     endPoints: {
-      schedule: 'http://localhost:3030',
+      schedule: 'https://nqz-parser.onrender.com',
     },
   },
 };
