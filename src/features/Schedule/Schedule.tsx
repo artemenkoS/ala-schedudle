@@ -19,12 +19,13 @@ export const Schedule = (props: IProps) => {
   const [selectedCity, setSelectedCity] = React.useState<TrustedHTML | null>(null);
   const [airlineValue, setAirlineValue] = React.useState<string>('');
 
+  console.log('props.city.endPoints.schedule', props.city.endPoints.schedule);
   const { data: schedule, isLoading } = useGetSchedule<ISchedule, IParams>(
     props.city.endPoints.schedule,
     {
       flightLeg: SCHEDULE_PARAMS[props.scheduleType],
     },
-    ['flightLeg', props.scheduleType]
+    ['flightLeg', props.scheduleType, props.city.endPoints.schedule]
   );
 
   const filteredData = React.useMemo(() => {
@@ -75,7 +76,7 @@ export const Schedule = (props: IProps) => {
         </MenuWrapper>
 
         <Grid container spacing={2} marginTop={1} marginBottom={2}>
-          <Grid item xs={3}>
+          <Grid item xs={3} minWidth={155}>
             <TextField fullWidth placeholder="Авиакомпания" size="small" onChange={handleAirlineChange} />
           </Grid>
           <Grid item xs={3}>

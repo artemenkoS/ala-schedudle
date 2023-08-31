@@ -9,13 +9,11 @@ export const useGetSchedule = <Response, Params extends IParams>(
   queryKey: string[]
 ) => {
   const { isLoading, isError, data } = useQuery({
-    queryKey: ['flightLeg', ...Object.values(params)],
+    queryKey: ['flightLeg', ...Object.values(params), ...queryKey],
     queryFn: () => fetchData<Response, Params>(endPoint, { ...params, _: Date.now() }),
     keepPreviousData: false,
     refetchInterval: 10000,
-    cacheTime: 10000,
-
-    // useErrorBoundary: true,
+    cacheTime: 0,
   });
 
   return {
