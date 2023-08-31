@@ -36,6 +36,10 @@ export const AirportLink = styled(NavLink)(({ theme }) => ({
     backgroundColor: theme.palette.primary.light,
     borderBottomColor: theme.palette.primary.main,
   },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: theme.spacing(2.2),
+    marginBottom: theme.spacing(0.3),
+  },
 }));
 
 export const MenuWrapper = styled('div')(({ theme }) => ({
@@ -50,6 +54,9 @@ export const Wrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(2, 4),
   maxWidth: '1250px',
   margin: '0 auto ',
+  [theme.breakpoints.down('sm')]: {
+    padding: theme.spacing(1.5, 2),
+  },
 }));
 
 export const AirportTitle = styled('div')(({ theme }) => ({

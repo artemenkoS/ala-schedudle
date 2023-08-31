@@ -1,17 +1,11 @@
 // ScheduleTable.tsx
 
 import * as React from 'react';
-import { Table, TableHead,  TableBody, TableRow, Paper, TableContainer } from '@mui/material';
+import { Table, TableHead, TableBody, TableRow, Paper, TableContainer } from '@mui/material';
 import { ScheduleType } from '../../../../constants';
 import { IFlight } from '../../types';
 import { MuiTableCell, City, Flight, Postponed, Gate } from './styled';
-import {
-  ScheduleBlocksWrapper,
-  ScheduleBlock,
-  TimeFlight,
-  AirlineStatus,
-  ScheduleBlockSection
-} from './styled';
+import { ScheduleBlocksWrapper, ScheduleBlock, TimeFlight, AirlineStatus, ScheduleBlockSection } from './styled';
 
 type Props = {
   flights: IFlight[];
@@ -29,7 +23,7 @@ export const ScheduleTable = (props: Props) => {
     ].filter(Boolean);
   };
 
-  const isMobile = window.innerWidth <= 768; // Check if the screen is mobile-sized
+  const isMobile = window.innerWidth <= 768;
 
   if (isMobile) {
     return (
@@ -49,7 +43,7 @@ export const ScheduleTable = (props: Props) => {
                     </>
                   )}
                 </div>
-              </TimeFlight>  
+              </TimeFlight>
               <div>
                 <City
                   dangerouslySetInnerHTML={
@@ -58,10 +52,12 @@ export const ScheduleTable = (props: Props) => {
                       : { __html: row.path.origin.originRu }
                   }
                 />
-                <Flight>{row.airlineIata} {row.flightNumber}</Flight>
+                <Flight>
+                  {row.airlineIata} {row.flightNumber}
+                </Flight>
               </div>
             </ScheduleBlockSection>
-      
+
             <AirlineStatus>
               <div>{row.airlineName}</div>
               {props.scheduleType === ScheduleType.Departures && (
@@ -77,16 +73,13 @@ export const ScheduleTable = (props: Props) => {
     );
   }
 
-  // Desktop Layout
   return (
     <TableContainer component={Paper} sx={{ maxHeight: '100%' }}>
       <Table stickyHeader>
         <TableHead>
           <TableRow>
             {titles().map((title) => (
-              <MuiTableCell key={title}>
-                {title}
-              </MuiTableCell>
+              <MuiTableCell key={title}>{title}</MuiTableCell>
             ))}
           </TableRow>
         </TableHead>
@@ -114,7 +107,9 @@ export const ScheduleTable = (props: Props) => {
                       : { __html: row.path.origin.originRu }
                   }
                 />
-                <Flight>{row.airlineIata} {row.flightNumber}</Flight>
+                <Flight>
+                  {row.airlineIata} {row.flightNumber}
+                </Flight>
               </MuiTableCell>
               <MuiTableCell>{row.airlineName}</MuiTableCell>
               {props.scheduleType === ScheduleType.Departures && (

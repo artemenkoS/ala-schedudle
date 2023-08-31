@@ -44,7 +44,7 @@ export const Schedule = (props: IProps) => {
         );
       }) ?? []
     );
-  }, [schedule, selectedCity, airlineValue]);
+  }, [selectedCity, airlineValue, schedule?.data.flights, props.scheduleType]);
 
   const cities = React.useMemo(() => {
     return new Set(
@@ -54,7 +54,7 @@ export const Schedule = (props: IProps) => {
           : flight.path.destination.destinationRu
       )
     );
-  }, [schedule]);
+  }, [props.scheduleType, schedule?.data.flights]);
 
   const handleAirlineChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAirlineValue(e.target.value.toUpperCase());

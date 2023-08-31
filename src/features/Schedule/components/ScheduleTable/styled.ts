@@ -1,5 +1,3 @@
-// styled.ts
-
 import { styled } from '@mui/material';
 import { TableCell } from '@mui/material';
 
@@ -49,29 +47,24 @@ export const Gate = styled('div')(({ theme }) => ({
   },
 }));
 
-
 export const ScheduleBlocksWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: theme.spacing(2),
   padding: theme.spacing(2),
   marginBottom: theme.spacing(2),
-
-
 }));
 
 export const ScheduleBlock = styled('div')(({ theme }) => ({
   fontWeight: 'bold',
   fontSize: theme.spacing(2.4),
   padding: theme.spacing(1.5),
-  border:'1px solid black'
-
+  border: '1px solid black',
 }));
 
 export const ScheduleBlockSection = styled('div')(({ theme }) => ({
- display: 'flex',
- justifyContent:'space-evenly'
-
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr',
 }));
 
 export const TimeFlight = styled('div')(({ theme }) => ({
