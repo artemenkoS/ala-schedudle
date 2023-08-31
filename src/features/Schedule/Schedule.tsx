@@ -1,13 +1,14 @@
 import * as React from 'react';
 
 import { Grid, TextField, LinearProgress } from '@mui/material';
+import { CITIES } from '../../constants';
 
 import { ScheduleTable } from './components/ScheduleTable/ScheduleTable';
 import { ScheduleType, SCHEDULE_PARAMS } from '../../constants';
 import { ICity, IParams } from '../../types';
 import { CitySelect } from './components/CitySelect';
 import { useGetSchedule } from './hooks/useGetSchedule';
-import { AirportTitle, RouteLink, ScheduleWrapper, MenuWrapper, Wrapper } from './styled';
+import { AirportTitle, RouteLink, ScheduleWrapper, MenuWrapper, Wrapper, AirportLink } from './styled';
 import { ICities, IFlight, ISchedule } from './types';
 
 interface IProps {
@@ -64,6 +65,13 @@ export const Schedule = (props: IProps) => {
     <>
       {isLoading && <LinearProgress />}
       <Wrapper>
+        <MenuWrapper>
+          {Object.values(CITIES).map((city) => (
+            <AirportLink key={city.routeId} to={`/${city.routeId}/${props.scheduleType}`}>
+              {city.name}
+            </AirportLink>
+          ))}
+        </MenuWrapper>
         <AirportTitle>{props.city.name} ✈</AirportTitle>
 
         <MenuWrapper>
